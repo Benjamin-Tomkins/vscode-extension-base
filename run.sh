@@ -468,6 +468,42 @@ test_extension() {
     fi
 }
 
+# Cleanup build artifacts
+# Removes the dist folder and .vsix files to allow for a clean rebuild
+cleanup_build() {
+    log_step "Cleaning up build artifacts..."
+    cd "$EXTENSION_DIR"
+    
+    local removed_something=false
+    
+    # Check and remove dist folder if it exists
+    if [ -d "dist" ]; then
+        log_info "Removing dist folder..."
+        rm -rf dist
+        removed_something=true
+    fi
+    
+    # Find and remove any .vsix files
+    local vsix_files=$(find . -maxdepth 1 -name "*.vsix")
+    if [ -n "$vsix_files" ]; then
+        log_info "Removing .vsix files:"
+        for file in $vsix_files; do
+            log_info "  - $(basename $file)"
+            rm -f "$file"
+        done
+        removed_something=true
+    fi
+    
+    # Report results
+    if [ "$removed_something" = true ]; then
+        log_success "Build artifacts cleaned successfully"
+    else
+        log_info "No build artifacts found to clean"
+    fi
+    
+    return 0
+}
+
 # Display the main menu
 # Presents a UI for the user to select actions to perform
 show_menu() {
@@ -488,6 +524,7 @@ show_menu() {
     echo -e "${YELLOW}6)${RESET} Run Extension in Debug Mode"
     echo -e "${YELLOW}7)${RESET} Watch for Changes (auto-rebuild)"
     echo -e "${YELLOW}8)${RESET} Run Extension Tests"
+    echo -e "${YELLOW}9)${RESET} Clean Build Artifacts (dist folder & .vsix files)"
     echo -e "${YELLOW}0)${RESET} Exit"
     echo
     read -p "$(echo -e "${BOLD}Select an option:${RESET} ")" choice
@@ -502,6 +539,7 @@ show_menu() {
         6) debug_extension ;;
         7) watch_extension ;;
         8) test_extension ;;
+        9) cleanup_build ;;
         0) log_info "Exiting..."; exit 0 ;;
         *) log_error "Invalid option" ;;
     esac
