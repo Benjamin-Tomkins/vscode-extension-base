@@ -209,7 +209,7 @@ package_extension() {
         # Try again with the aggressive approach
         log_step "Attempting packaging with minimal configuration..."
         VSCE_IGNORE_WARNINGS=1 NODE_OPTIONS=--no-deprecation vsce package --no-dependencies --no-git-tag-version \
-            --no-update-package-json --skip-license --ignoreFile .vscodeignore --yarn 2>&1 | tee /tmp/vsce_package_fallback.log || true
+            --no-update-package-json --skip-license --ignoreFile .vscodeignore --no-yarn 2>&1 | tee /tmp/vsce_package_fallback.log || true
             
         # Restore original README if it was backed up
         if [ -f "README.md.bak" ]; then
