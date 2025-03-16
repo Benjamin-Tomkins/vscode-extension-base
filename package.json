@@ -1,8 +1,9 @@
 {
   "name": "epic",
-  "displayName": "epic",
-  "description": "...",
+  "displayName": "Epic Extension",
+  "description": "A powerful extension for VS Code",
   "version": "0.0.1",
+  "publisher": "John-Doe",
   "engines": {
     "vscode": "^1.98.0"
   },
@@ -16,6 +17,150 @@
       {
         "command": "epic.helloWorld",
         "title": "Hello World"
+      },
+      {
+        "command": "epic.refreshEntry",
+        "title": "Refresh",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "epic.option1",
+        "title": "Option 1",
+        "icon": "$(icon-name)"
+      },
+      {
+        "command": "epic.option2",
+        "title": "Option 2",
+        "icon": "$(icon-name)"
+      },
+      {
+        "command": "epic.option3",
+        "title": "Option 3"
+      },
+      {
+        "command": "epic.showMenu",
+        "title": "Epic Menu",
+        "icon": "$(star)"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "epic-sidebar",
+          "title": "Epic Extension",
+          "icon": "$(star)"
+        }
+      ]
+    },
+    "views": {
+      "epic-sidebar": [
+        {
+          "id": "epicExplorer",
+          "name": "Epic Explorer",
+          "icon": "$(star)"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "epic.refreshEntry",
+          "when": "view == epicExplorer",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "epic.option1",
+          "when": "view == epicExplorer",
+          "group": "inline"
+        }
+      ],
+      "editor/context": [
+        {
+          "submenu": "epic.customMenu",
+          "group": "epic@1"
+        }
+      ],
+      "explorer/context": [
+        {
+          "submenu": "epic.customMenu",
+          "group": "epic@1"
+        }
+      ],
+      "epic.menu": [
+        {
+          "command": "epic.option1",
+          "group": "1_commands@1"
+        },
+        {
+          "command": "epic.option2",
+          "group": "1_commands@2"
+        },
+        {
+          "command": "epic.option3",
+          "group": "1_commands@3"
+        },
+        {
+          "submenu": "epic.customMenu",
+          "group": "2_submenu"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "epic.option1"
+        },
+        {
+          "command": "epic.option2"
+        },
+        {
+          "command": "epic.option3"
+        },
+        {
+          "command": "epic.showMenu"
+        }
+      ],
+      "epic.customMenu": [
+        {
+          "command": "epic.option1",
+          "group": "1_options"
+        },
+        {
+          "command": "epic.option2",
+          "group": "1_options"
+        },
+        {
+          "command": "epic.option3",
+          "group": "2_more@1"
+        }
+      ]
+    },
+    "submenus": [
+      {
+        "id": "epic.customMenu",
+        "label": "Epic Options"
+      }
+    ],
+    "customEditors": [],
+    "iconThemes": [],
+    "colors": [
+      {
+        "id": "epic.categoryHeaderBackground",
+        "description": "Background color for Epic category headers",
+        "defaults": {
+          "dark": "#323232",
+          "light": "#E8E8E8",
+          "highContrast": "#000000"
+        }
+      },
+      {
+        "id": "epic.categoryHeaderForeground",
+        "description": "Text color for Epic category headers",
+        "defaults": {
+          "dark": "#FFFFFF",
+          "light": "#000000",
+          "highContrast": "#FFFFFF"
+        }
       }
     ]
   },

@@ -1,0 +1,8 @@
+.category-item {
+    font-weight: bold;
+    border: 1px solid var(--vscode-list-highlightForeground);
+    border-radius: 3px;
+    padding: 2px 5px;
+    margin: 2px 0;
+    background-color: var(--vscode-editor-background);
+}
