@@ -58,10 +58,10 @@ export class SidebarView implements vscode.TreeDataProvider<SidebarTreeItem> {
     ];
 
     private rootItems: SidebarTreeItem[] = [
-        new SidebarTreeItem('Jira', vscode.TreeItemCollapsibleState.Expanded, undefined, undefined, this.jiraItems, 'category'),
-        new SidebarTreeItem('Confluence', vscode.TreeItemCollapsibleState.Expanded, undefined, undefined, this.confluenceItems, 'category'),
-        new SidebarTreeItem('GitHub', vscode.TreeItemCollapsibleState.Expanded, undefined, undefined, this.githubItems, 'category'),
-        new SidebarTreeItem('Ansible', vscode.TreeItemCollapsibleState.Expanded, undefined, undefined, this.ansibleItems, 'category')
+        new SidebarTreeItem('Jira', vscode.TreeItemCollapsibleState.Collapsed, undefined, undefined, this.jiraItems, 'category'),
+        new SidebarTreeItem('Confluence', vscode.TreeItemCollapsibleState.Collapsed, undefined, undefined, this.confluenceItems, 'category'),
+        new SidebarTreeItem('GitHub', vscode.TreeItemCollapsibleState.Collapsed, undefined, undefined, this.githubItems, 'category'),
+        new SidebarTreeItem('Ansible', vscode.TreeItemCollapsibleState.Collapsed, undefined, undefined, this.ansibleItems, 'category')
     ];
 
     refresh(): void {
