@@ -6,7 +6,7 @@ import * as path from 'path';
 // TreeItem class for our sidebar items
 class EpicTreeItem extends vscode.TreeItem {
   constructor(
-    public readonly label: string,
+    public readonly label: string | vscode.TreeItemLabel,
     public readonly collapsibleState: vscode.TreeItemCollapsibleState,
     public readonly description?: string,
     public readonly command?: vscode.Command,
@@ -20,6 +20,7 @@ class EpicTreeItem extends vscode.TreeItem {
     
     // Apply styling to category items
     if (contextValue === 'category') {
+
       // Make category labels visually distinct with both color and icon
       this.tooltip = `${label} Section`;
       
@@ -50,6 +51,7 @@ class EpicTreeItem extends vscode.TreeItem {
       
       // Apply font weight through label format
       this.label = label;
+    
     }
   }
 }
