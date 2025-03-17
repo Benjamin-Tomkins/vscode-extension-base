@@ -61,12 +61,7 @@ export class SidebarView implements vscode.TreeDataProvider<SidebarTreeItem> {
         new SidebarTreeItem('Jira', vscode.TreeItemCollapsibleState.Expanded, undefined, undefined, this.jiraItems, 'category'),
         new SidebarTreeItem('Confluence', vscode.TreeItemCollapsibleState.Expanded, undefined, undefined, this.confluenceItems, 'category'),
         new SidebarTreeItem('GitHub', vscode.TreeItemCollapsibleState.Expanded, undefined, undefined, this.githubItems, 'category'),
-        new SidebarTreeItem('Ansible', vscode.TreeItemCollapsibleState.Expanded, undefined, undefined, this.ansibleItems, 'category'),
-        new SidebarTreeItem('Settings', vscode.TreeItemCollapsibleState.None, 'Configure extension settings', {
-            command: 'epic.openSettings',
-            title: 'Open Settings',
-            arguments: []
-        }, undefined, 'setting')
+        new SidebarTreeItem('Ansible', vscode.TreeItemCollapsibleState.Expanded, undefined, undefined, this.ansibleItems, 'category')
     ];
 
     refresh(): void {
