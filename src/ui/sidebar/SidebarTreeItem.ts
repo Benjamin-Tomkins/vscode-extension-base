@@ -18,19 +18,19 @@ export class SidebarTreeItem extends vscode.TreeItem {
             this.tooltip = `${label} Section`;
             switch (label) {
                 case 'Jira':
-                    this.iconPath = new vscode.ThemeIcon('issues');
+                    this.iconPath = new vscode.ThemeIcon('issues', new vscode.ThemeColor('charts.blue'));
                     break;
                 case 'Confluence':
-                    this.iconPath = new vscode.ThemeIcon('book');
+                    this.iconPath = new vscode.ThemeIcon('book', new vscode.ThemeColor('charts.purple'));
                     break;
                 case 'GitHub':
-                    this.iconPath = new vscode.ThemeIcon('github');
+                    this.iconPath = new vscode.ThemeIcon('github', new vscode.ThemeColor('terminal.ansiGreen'));
                     break;
                 case 'Ansible':
-                    this.iconPath = new vscode.ThemeIcon('server');
+                    this.iconPath = new vscode.ThemeIcon('server', new vscode.ThemeColor('charts.red'));
                     break;
                 default:
-                    this.iconPath = new vscode.ThemeIcon('folder');
+                    this.iconPath = new vscode.ThemeIcon('folder', new vscode.ThemeColor('charts.foreground'));
             }
             this.description = '';
         }
