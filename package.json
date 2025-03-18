@@ -46,6 +46,21 @@
         "command": "epic.openSettings",
         "title": "Open Settings",
         "icon": "$(gear)"
+      },
+      {
+        "command": "epic.configureCredentials",
+        "title": "Epic: Configure Repository Credentials",
+        "category": "Epic"
+      },
+      {
+        "command": "epic.configureRepositoryUrl",
+        "title": "Epic: Configure Repository URL",
+        "category": "Epic"
+      },
+      {
+        "command": "epic.openSettingsPanel",
+        "title": "Epic: Open Settings Panel",
+        "category": "Epic"
       }
     ],
     "viewsContainers": {
@@ -76,7 +91,8 @@
         {
           "command": "epic.openSettings",
           "when": "view == epicExplorer",
-          "group": "navigation"
+          "group": "navigation",
+          "icon": "$(gear)"
         }
       ],
       "view/item/context": [
@@ -131,6 +147,15 @@
         },
         {
           "command": "epic.openSettings"
+        },
+        {
+          "command": "epic.openSettingsPanel"
+        },
+        {
+          "command": "epic.configureCredentials"
+        },
+        {
+          "command": "epic.configureRepositoryUrl"
         }
       ],
       "epic.customMenu": [
@@ -175,7 +200,64 @@
           "highContrast": "#FFFFFF"
         }
       }
-    ]
+    ],
+    "configuration": {
+      "title": "Epic",
+      "properties": {
+        "epic.repositories": {
+          "type": "object",
+          "properties": {
+            "jira": {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "default": "",
+                  "description": "URL of your Jira instance"
+                }
+              }
+            },
+            "confluence": {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "default": "",
+                  "description": "URL of your Confluence instance"
+                }
+              }
+            },
+            "github": {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "default": "",
+                  "description": "URL of your GitHub repository"
+                }
+              }
+            },
+            "ansible": {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "default": "",
+                  "description": "URL of your Ansible repository"
+                }
+              }
+            }
+          },
+          "default": {
+            "jira": { "url": "" },
+            "confluence": { "url": "" },
+            "github": { "url": "" },
+            "ansible": { "url": "" }
+          },
+          "description": "Repository locations for different services"
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "pnpm run package",

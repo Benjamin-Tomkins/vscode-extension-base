@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Epic Extension Settings",
+  "description": "Settings for the Epic VS Code extension",
+  "properties": {
+    "epic": {
+      "type": "object",
+      "properties": {
+        "repositories": {
+          "type": "object",
+          "description": "Repository locations for different services",
+          "properties": {
+            "jira": {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "description": "URL of your Jira instance"
+                }
+              }
+            },
+            "confluence": {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "description": "URL of your Confluence instance"
+                }
+              }
+            },
+            "github": {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "description": "URL of your GitHub repository"
+                }
+              }
+            },
+            "ansible": {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "description": "URL of your Ansible repository"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
