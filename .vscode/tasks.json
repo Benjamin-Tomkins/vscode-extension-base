@@ -5,8 +5,18 @@
 	"tasks": [
 		{
 			"type": "npm",
-			"script": "watch",
-			"problemMatcher": "$ts-webpack-watch",
+			"script": "clean-and-watch",
+			"problemMatcher": {
+				"owner": "webpack",
+				"pattern": {
+					"regexp": "."
+				},
+				"background": {
+					"activeOnStart": true,
+					"beginsPattern": "webpack .+ compiled",
+					"endsPattern": "webpack .+ compiled successfully"
+				}
+			},
 			"isBackground": true,
 			"presentation": {
 				"reveal": "never",
@@ -31,7 +41,7 @@
 		{
 			"label": "tasks: watch-tests",
 			"dependsOn": [
-				"npm: watch",
+				"npm: clean-and-watch",
 				"npm: watch-tests"
 			],
 			"problemMatcher": []
